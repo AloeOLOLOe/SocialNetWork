@@ -1,13 +1,22 @@
 import React from 'react';
 import MyPosts from "./MyPosts/MyPosts";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
+type posts = {
+    id:number
+    message: string
+    likesCount: number
+}
+type ProfileType={
+    posts: Array<posts>
+}
 
-const Profile = () => {
+const Profile:React.FC<ProfileType> = (props) => {
+
     return (
         <div>
             <div>
                 <ProfileInfo/>
-                <MyPosts/>
+                <MyPosts posts={props.posts}/>
 
             </div>
         </div>
