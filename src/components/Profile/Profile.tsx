@@ -1,22 +1,18 @@
 import React from 'react';
-import MyPosts from "./MyPosts/MyPosts";
+import {MyPosts} from "./MyPosts/MyPosts";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
-type posts = {
-    id:number
-    message: string
-    likesCount: number
-}
-type ProfileType={
-    posts: Array<posts>
-}
+import {ProfilePageType} from "../redux/state";
 
-const Profile:React.FC<ProfileType> = (props) => {
+type DialogsPropsType={
+    profilePage:ProfilePageType
+}
+const Profile:React.FC<DialogsPropsType> = (props) => {
 
     return (
         <div>
             <div>
                 <ProfileInfo/>
-                <MyPosts posts={props.posts}/>
+                <MyPosts posts={props.profilePage.posts}/>
 
             </div>
         </div>

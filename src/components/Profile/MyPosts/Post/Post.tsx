@@ -1,10 +1,11 @@
 import React from 'react';
 import s from './Post.module.css';
-type MessageType = {
+
+type PostPropsType = {
     message: string
     likesCount: number
 }
-const Post: React.FC<MessageType> = (props) => {
+export const Post: React.FC<PostPropsType> = (props) => {
     return (
         <div>
 
@@ -22,6 +23,6 @@ const Post: React.FC<MessageType> = (props) => {
 
     )
 }
-export default Post;
+
 
 
