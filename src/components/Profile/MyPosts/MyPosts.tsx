@@ -3,19 +3,23 @@ import s from './MyPosts.module.css'
 import {Post} from "./Post/Post";
 import {PostType} from "../../redux/state";
 
+
 type MyPostsPropsType = {
     posts: Array<PostType>
+    addPost: (postMessage: string) => void
 }
 
 export const MyPosts: React.FC<MyPostsPropsType> = (props) => {
 
 
     let postsElement = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
-    let addPost = () => {
-        let text = newPostElement.current?.value;
-        alert(text);
-    }
     let newPostElement = React.createRef<HTMLTextAreaElement>();
+    const addPost = () => {
+        if (newPostElement.current) {
+            props.addPost(newPostElement.current.value)
+        }
+
+    }
 
     return (
         <div className={s.postsBlock}>

@@ -1,6 +1,7 @@
 export type MessageType = {
     id: number
     message: string
+
 }
 export type DialogType = {
     id: number
@@ -55,4 +56,12 @@ export let state: RootStateType = {
     sideBar: {}
 }
 
+export const addPost = (postMessage:string) => {
+    const newPost:PostType = {
+        id:new Date().getTime(),
+        message: postMessage,
+        likesCount:0
+    }
 
+    state.profilePage.posts.push(newPost);
+}
