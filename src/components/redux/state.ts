@@ -60,14 +60,15 @@ export let state: RootStateType = {
     sideBar: {}
 }
 
-export const addPost = (postMessage: string) => {
+export const addPost = () => {
     const newPost: PostType = {
         id: new Date().getTime(),
-        message: postMessage,
+        message: state.profilePage.newPostText,
         likesCount: 0
     }
 
     state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText ='';
     rerenderEntireTree(state)
 }
 export const updateNewPostText = (newText: string) => {
